@@ -4,15 +4,23 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import main.com.codility.caseThree.converter.Converter;
 import test.com.codility.caseThree.test.constants.ConstantsTest;
 
 class ConverterTest {
+	
+	Converter converter = new Converter();
 
+	@Before
+	public void setUp() {
+		converter = new Converter();
+	}
+		
 	@Test
 	public void testIsContainDot() {
-		Converter converter = new Converter();
+		
 		boolean realresult = true;
 		boolean result = converter.isContainDot(ConstantsTest.testDatas[0]);
 		Assert.assertTrue("FALSE RESULT", result == realresult);
@@ -20,7 +28,6 @@ class ConverterTest {
 
 	@Test
 	public void testReplaceComma() {
-		Converter converter = new Converter();
 		String realresult = "174512";
 		String result = converter.replaceComma(ConstantsTest.testDatas[19]); // 1745,12
 		Assert.assertTrue("FALSE RESULT", result.equals(realresult)); // String .equals for comparing value not memory
@@ -28,7 +35,6 @@ class ConverterTest {
 
 	@Test
 	public void testSplitUnit() {
-		Converter converter = new Converter();
 		List<String> realresult = new ArrayList<String>();
 		List<String> result = new ArrayList<String>();
 		boolean isEqual = false;
@@ -41,7 +47,6 @@ class ConverterTest {
 
 	@Test
 	public void testConvertLessThousand() {
-		Converter converter = new Converter();
 		String realresult = "sixteen";
 		String strnumber = ConstantsTest.testDatas[2]; // 16
 		String mask = "000000000000";
@@ -56,7 +61,6 @@ class ConverterTest {
 
 	@Test
 	void testConvert() {
-		Converter converter = new Converter();
 		String realresult = "two billion  one hundred forty seven million  four hundred eighty three thousand  six hundred forty seven dollars";
 		List<String> list = new ArrayList<String>();
 		list = converter.splitUnit(ConstantsTest.testDatas[11]); // 2147483647
